@@ -20,12 +20,19 @@
 
 
 import os
+import sys
 import setuptools
 
+version = 0.1
 
+if '--version' in sys.argv:
+    index = sys.argv.index('--version')
+    sys.argv.pop(index)  # Removes the '--version'
+    version = sys.argv.pop(index)  # Returns the element after the '--version'
+print(version)
 setuptools.setup(
     name = 'ccm-build-test',
-    version = 'v0.1',
+    version = version,
     keywords = 'demo',
     packages = setuptools.find_packages(),
 
@@ -42,3 +49,4 @@ setuptools.setup(
 
     long_description = 'test build package'
 )
+
