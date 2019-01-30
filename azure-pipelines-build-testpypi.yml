@@ -9,7 +9,7 @@ jobs:
   - script: python3 -m pip install twine --user
     displayName: 'Install twine'
   - script: |
-      python3 setup.py --version ${version} bdist
+      python3 setup.py --version $(version) bdist
     displayName: 'build bdsit'
   - script: |
       twine upload --repository testpypi dist/*
