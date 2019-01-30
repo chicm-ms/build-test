@@ -1,0 +1,16 @@
+trigger:
+- master
+
+jobs:
+- job: 'Ubuntu_16_04'
+  pool: 'NNI CI GPU'
+
+  steps:
+  - script: python3 -m pip install twine --user
+    displayName: 'Install twine'
+  - script: |
+      python3 setup.py bdist
+    displayName: 'build bdsit'
+  - script: |
+      twine upload --repository testpypi dist/*
+    displayName: 'upload package to testpypi'
