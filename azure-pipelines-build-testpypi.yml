@@ -14,6 +14,6 @@ jobs:
 #    displayName: 'upload package to testpypi'
 
   - script: |
-      twine upload -u chicm -p Pass@1234pass --repository-url https://test.pypi.org/legacy/ dist/*
+      twine upload -u $(username) -p $(password) --repository-url https://test.pypi.org/legacy/ dist/*
     displayName: 'upload package to testpypi'
 
