@@ -1,5 +1,3 @@
-trigger:
-- master
 
 jobs:
 - job: 'Ubuntu_16_04'
@@ -11,6 +9,11 @@ jobs:
   - script: |
       python3 setup.py --version $(version) bdist
     displayName: 'build bdsit'
+#  - script: |
+#      twine upload --repository testpypi dist/*
+#    displayName: 'upload package to testpypi'
+
   - script: |
-      twine upload --repository testpypi dist/*
+      twine upload -u chicm -p Pass@1234pass dist/*
     displayName: 'upload package to testpypi'
+
